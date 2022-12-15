@@ -1,0 +1,18 @@
+<div class="float-end" style="padding-right: 30px;">
+    <a class="btn btn-outline-info" [routerLink]="['/album', albumId]">Get back</a>
+</div>
+<h2>Upload a Photo</h2>
+<br>
+<p>The retrieved albumID is {{albumId}} </p>
+<div style="width: 500px; margin:auto;">
+    <div class="form-group">
+        <label >Created By</label>
+        <input type="text" [(ngModel)]="createdBy" class="form-control"  placeholder="Enter creator name ">
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Photo</label>
+        <input type="file" class="form-control" enctype="multipart/form-data"[disabled]="!createdBy" (change)="uploadPhoto($any($event).target.files[0])">
+      </div>
+</div>
+

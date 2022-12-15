@@ -1,0 +1,26 @@
+
+<div class="float-start" style="padding-right: 30px;">
+    <a class="btn btn-outline-success" [routerLink]="['/albums']">Go back to Album</a>
+</div>
+<div class="float-end" style="padding-right: 30px;">
+    <a class="btn btn-outline-success" (click)="makeAlbumCover()">Set it as album cover</a>
+
+</div>
+<div *ngIf="photo" style="width: 450px; margin: auto;" >
+    <div *ngFor="let photo of photo">
+    <img [src]="photo.coverPhotoUrl" alt="cover photo" class="rounded" width="450px"/>
+</div>
+</div>
+<div class="btn-group float-end" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-outline-info" (click)="loadCommentsNew(photoId)">Most recent</button>
+    <button type="button" class="btn btn-outline-info" (click)="loadCommentsOld(photoId)">Oldest</button>
+  </div>
+<br>
+<div style="padding-top: 30px;" *ngIf="allComments">
+    <div class="alert alert-primary" style="text-align: right;" role="alert" *ngFor="let comment of allComments" >
+ {{comment.message}} -- {{comment.createdBy}} on {{comment.dateCreated}}
+    </div>
+</div>
+
+
+
